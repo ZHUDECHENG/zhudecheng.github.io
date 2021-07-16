@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/dafeiji.css" />
+		
+		<script src="" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/gameEngine.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/myPlane.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bullets.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/enemy.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+			//使用面向对象的方式处理打飞机
+			
+			//1 游戏控制器  唯一
+				//可以控制画面加载
+				//背景移动
+				//添加小飞机
+				//添加敌机
+				//控制小飞机的移动
+				//积分
+				//碰撞检测（小飞机撞敌机   敌机撞子弹）
+			//2 自己的飞机  唯一
+				//要发射子弹
+				//爆炸
+			//3子弹   很多
+				//位移
+				//爆炸
+			//4敌机  很多
+				//位移
+				//爆炸 
+				
+				onload = function(){
+					var oList = document.getElementById('list');
+					var aLi = oList.getElementsByTagName('li');
+					
+					
+					for(var i= 0; i<aLi.length;i++){
+						aLi[i].onclick  = function(){
+							oList.parentNode.removeChild(oList);
+							
+							
+							//得到子弹发射的速度
+							
+							var bulletSpeed = this.value;
+							myPlane.bulletSpeed = bulletSpeed;
+							
+							//开始游戏
+							 //游戏控制器  控制开始游戏
+							 //使用游戏控制器
+							 gameEngine.init().start()
+						}
+					}
+				}
+						
+		</script>
+	</head>
+	<body>
+		
+		<div id="main_body" class="main">
+			<ul id="list">
+				<li value="1000">超级困难</li>
+				<li value="500">非常困难</li>
+				<li value="250">比较困难</li>
+				<li value="80">春哥附体</li>
+			</ul>
+		</div>
+		
+	</body>
+</html>
